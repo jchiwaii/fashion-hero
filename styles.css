@@ -1,0 +1,107 @@
+/* Reset styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root styles */
+:root {
+  /* Font size for rem calculations */
+  font-size: 62.5%;
+
+  /* Colors */
+  --color-main-bg: #000;
+  --color-secondary: #fff;
+
+  /* Spacing system in rems */
+  --space-xs: 0.4rem; /* 4px */
+  --space-sm: 0.8rem; /* 8px */
+  --space-md: 1.6rem; /* 16px */
+  --space-lg: 2.4rem; /* 24px */
+  --space-xl: 3.2rem; /* 32px */
+  --space-2xl: 4.8rem; /* 48px */
+  --space-3xl: 6.4rem; /* 64px */
+}
+
+/* Base styles */
+html {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--color-main-bg);
+  color: var(--color-secondary);
+}
+
+/* Main content styles */
+main {
+  min-height: 100vh;
+  padding: var(--space-3xl);
+}
+
+.main-content {
+  max-width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--space-3xl);
+  align-items: last baseline;
+}
+
+.main-content--heading {
+  margin-bottom: var(--space-xl);
+  width: 20%;
+}
+
+.main-content--heading h1 {
+  font-size: var(--space-3xl);
+  font-weight: 500;
+}
+
+.main-content--frames {
+  display: flex;
+  gap: ;
+  flex: 1;
+}
+
+.main-content--frames img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Updated sub content styles for side-by-side layout */
+.sub-content {
+  margin-top: var(--space-2xl);
+  display: flex;
+  gap: var(--space-xl);
+  align-items: flex-start;
+}
+
+.sub-content--p {
+  font-size: 2.4rem;
+  font-weight: 600;
+  min-width: max-content;
+}
+
+.sub-content--info {
+  font-size: 1.8rem;
+  max-width: 60ch;
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content--heading,
+  .sub-content {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .main-content--frames {
+    flex-direction: column;
+  }
+}

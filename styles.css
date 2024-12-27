@@ -147,6 +147,30 @@ main {
   }
 }
 
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .hero__heading {
+    width: 100%;
+  }
+
+  .hero__heading h1 {
+    font-size: var(--space-3xl);
+  }
+
+  .portfolio {
+    flex-direction: column;
+    gap: var(--space-l);
+  }
+
+  .portfolio__title {
+    margin-bottom: var(--space-m);
+  }
+}
+
 @media (max-width: 768px) {
   .hero__gallery {
     flex-direction: column;

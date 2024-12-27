@@ -1,4 +1,26 @@
-/* Reset styles */
+/* Core design tokens */
+:root {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --font-primary: "Roboto Serif", serif;
+  --font-secondary: "Questrial", sans-serif;
+
+  /* Spacing scale (rem) */
+  --space-2xs: 0.4rem;
+  --space-xs: 0.8rem;
+  --space-s: 1.6rem;
+  --space-m: 2.4rem;
+  --space-l: 3.2rem;
+  --space-xl: 4.8rem;
+  --space-2xl: 6.4rem;
+  --space-3xl: 8rem;
+  --space-4xl: 9.6rem;
+  --space-5xl: 12.8rem;
+  --space-6xl: 16rem;
+  --space-7xl: 20rem;
+}
+
+/* Base reset */
 *,
 *::before,
 *::after {
@@ -7,107 +29,154 @@
   box-sizing: border-box;
 }
 
-/* Root styles */
-:root {
-  /* Colors */
-  --color-main-bg: #000;
-  --color-secondary: #fff;
-
-  /* Spacing system in rems */
-  --space-xs: 0.4rem; /* 4px */
-  --space-sm: 0.8rem; /* 8px */
-  --space-md: 1.6rem; /* 16px */
-  --space-lg: 2.4rem; /* 24px */
-  --space-xl: 3.2rem; /* 32px */
-  --space-2xl: 4.8rem; /* 48px */
-  --space-3xl: 6.4rem; /* 64px */
-  --space-4xl: 8rem; /* 80px */
-  --space-5xl: 9.6rem; /* 96px */
-  --space-6xl: 12.8rem; /* 128px */
-  --space-7xl: 16rem; /* 160px */
-  --space-8xl: 20rem; /* 200px */
-}
-
-/* Base styles */
 html {
   font-size: 62.5%;
 }
 
 body {
   font-size: 1.6rem;
-  font-family: "Roboto Serif", sans-serif;
-  background-color: var(--color-main-bg);
+  font-family: var(--font-primary);
+  background-color: var(--color-primary);
   color: var(--color-secondary);
 }
 
+/* Layout */
 main {
   min-height: 100vh;
-  padding: var(--space-5xl);
+  padding: var(--space-4xl);
 }
 
-.main-content {
+/* Hero section */
+.hero {
   max-width: 120rem;
   margin: 0 auto;
   display: flex;
-  gap: var(--space-3xl);
+  gap: var(--space-2xl);
   align-items: last baseline;
 }
 
-.main-content--heading {
+.hero__heading {
   width: 35%;
 }
 
-.main-content--heading h1 {
-  font-size: var(--space-5xl);
+.hero__heading h1 {
+  font-size: var(--space-4xl);
   font-weight: 400;
   letter-spacing: -3px;
+  opacity: 0.9;
 }
 
-.main-content--frames {
+.hero__gallery {
   display: flex;
-  gap: var(--space-4xl);
+  gap: var(--space-3xl);
   flex: 1;
 }
 
-.main-content--frames img {
+.hero__gallery img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.sub-content {
-  font-family: "Questrial", sans-serif;
-  margin: var(--space-4xl) auto;
+/* Portfolio section */
+.portfolio {
+  font-family: var(--font-secondary);
+  margin: var(--space-3xl) auto;
   display: flex;
   max-width: 120rem;
   align-items: flex-start;
   line-height: 2;
 }
 
-.sub-content--p {
+.portfolio__title {
   font-size: 2.4rem;
-  font-weight: 600;
   min-width: 40%;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: 300;
 }
 
-.sub-content--info {
+.portfolio__bio {
   font-size: 1.8rem;
   max-width: 60ch;
   opacity: 0.9;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .main-content--heading,
-  .sub-content {
+/* Scroll indicator */
+.scroll-indicator {
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-indicator__btn {
+  font-size: 2.5rem;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 9999px;
+  background-color: #f9fafb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-indicator__btn:hover {
+  background-color: #f3f4f6;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive breakpoints */
+
+@media (max-width: 1200px) {
+  .hero {
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-xl);
   }
 
-  .main-content--frames {
+  .hero__heading {
+    width: 100%;
+  }
+
+  .portfolio {
     flex-direction: column;
+    gap: var(--space-l);
+  }
+
+  .portfolio__title {
+    margin-bottom: var(--space-m);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__gallery {
+    flex-direction: column;
+    gap: var(--space-l);
+  }
+
+  main {
+    padding: var(--space-l);
+  }
+
+  .hero__heading h1 {
+    font-size: var(--space-3xl);
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: var(--space-m);
+  }
+
+  .hero__heading h1 {
+    font-size: var(--space-2xl);
+    letter-spacing: -2px;
+  }
+
+  .portfolio__title {
+    font-size: 2rem;
+  }
+
+  .portfolio__bio {
+    font-size: 1.6rem;
   }
 }
